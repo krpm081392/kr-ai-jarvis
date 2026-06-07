@@ -1,0 +1,25 @@
+Apps needed: Tasker, AutoInput, Join.
+
+Tasker Profile:
+Profiles -> + -> Event -> Plugin -> Join -> Received Push
+Text Filter: kr_action:
+
+Task name: KR_Command_Handler
+
+IF %jointext ~ *open_binance*
+  App -> Launch App -> Binance
+END IF
+
+IF %jointext ~ *open_chrome*
+  App -> Launch App -> Chrome
+END IF
+
+IF %jointext ~ *open_mexc*
+  App -> Launch App -> MEXC
+END IF
+
+IF %jointext ~ *open_gateio*
+  App -> Launch App -> Gate.io
+END IF
+
+Safety: do not automate final BUY/SELL confirm. KR only prepares screen.
