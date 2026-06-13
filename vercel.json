@@ -1,1 +1,16 @@
-{"rewrites":[{"source":"/","destination":"/index.html"}]}
+{
+  "crons": [
+    {
+      "path": "/api/autonomous-loop",
+      "schedule": "*/15 * * * *"
+    },
+    {
+      "path": "/api/morning-brief",
+      "schedule": "0 7 * * *"
+    },
+    {
+      "path": "/api/price-alert-checker",
+      "schedule": "*/15 * * * *"
+    }
+  ]
+}

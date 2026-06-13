@@ -1,0 +1,25 @@
+K-R v5 Add-Only Patch
+Added:
+- KRV5Addons.jsx
+- Live tab added to App.jsx
+- Dashboard UI
+- Live Market UI
+- Research UI
+- Wallet UI
+- Journal UI
+- Phone status display
+- Screenshot analysis button
+- Price alert checker
+- Real autonomous loop upgrade
+- Env vars doc
+- Laptop agent v5
+
+Kept:
+- Existing UI
+- Existing tabs/features
+- Existing safety rules
+
+Still blocked:
+- no auto buy/sell
+- no withdrawals
+- no payment approval

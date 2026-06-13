@@ -1,0 +1,28 @@
+K-R v14 Reasoning + Knowledge Core Add-Only Patch
+
+Added:
+- KRV14Addons.jsx
+- V14 tab in App.jsx
+- Strong Reasoning Engine
+- Knowledge Base Search using memory + web research
+- Debug Engine
+- Tech Planner
+- Explain/Teach Engine
+- Architecture Review Agent
+- Code Review Agent scaffold
+
+Purpose:
+Gives K-R stronger reasoning-style responses, larger live knowledge access through web+memory,
+better tech planning, explanations, and debugging ability.
+
+Kept:
+- All previous features from the uploaded V13 package
+- Add-only rule
+- Safety blocks
+
+Safety:
+- no auto buy/sell
+- no withdrawals
+- no payments
+- no deleting files
+- no auto-deploy without Dikong confirmation

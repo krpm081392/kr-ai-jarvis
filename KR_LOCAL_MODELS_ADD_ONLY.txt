@@ -1,0 +1,34 @@
+K-R LOCAL MODELS ADD-ONLY UPDATE
+
+Added Dikong's installed GPT4All local models to the KR project configuration.
+
+Installed on laptop:
+1. GPT4All Falcon
+   - Parameters: 7B
+   - Quant: q4_0
+   - File size: 3.92 GB
+   - RAM required: 8 GB
+   - Role: Emergency backup model
+
+2. TheBloke/Mistral-7B-Instruct-v0.2-GGUF
+   - Parameters: 7B
+   - Quant: q4_0
+   - File size: 3.83 GB
+   - Role: Primary offline backup model
+
+IMPORTANT RULE:
+- Do NOT upload model files to Supabase.
+- Supabase stores memory/config only.
+- The actual model files stay on the laptop inside GPT4All.
+
+Recommended fallback order:
+1. Gemini API = main online brain
+2. ChatGPT/OpenAI API = premium/cloud brain later
+3. Mistral 7B = primary offline backup brain
+4. GPT4All Falcon = emergency backup
+
+Optional Vercel/Supabase settings:
+KR_LOCAL_MODEL_PRIMARY=TheBloke/Mistral-7B-Instruct-v0.2-GGUF
+KR_LOCAL_MODEL_BACKUP=GPT4All Falcon
+KR_LOCAL_MODEL_RUNNER=GPT4All v3.10.0
+KR_LOCAL_MODEL_ENDPOINT=http://localhost:4891/v1/chat/completions

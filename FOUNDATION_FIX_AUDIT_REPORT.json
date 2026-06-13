@@ -1,0 +1,18 @@
+{
+  "source_zip": "kr-jarvis-v14-reasoning-knowledge-add-only.zip",
+  "output_zip": "kr-jarvis-v14-foundation-fixed-verified-add-only.zip",
+  "deleted_files": [],
+  "modified_files": [
+    "api/kr.js",
+    "src/App.jsx"
+  ],
+  "added_files": [
+    "api/voice-chat-status.js"
+  ],
+  "fixes": [
+    "Added missing navigation tabs/rendering for existing addon components.",
+    "Reconnected active chat brain api/kr.js to live tools.",
+    "Added voice-chat-status endpoint.",
+    "Kept safety blocks: no auto buy/sell/withdrawals/payments/deleting/high-risk clicks."
+  ]
+}

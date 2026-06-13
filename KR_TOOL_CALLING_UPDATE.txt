@@ -1,0 +1,28 @@
+K-R Tool Calling Upgrade Added
+
+Updated:
+- api/kr.js
+
+Added:
+- Gemini native safe tools:
+  - control_phone
+  - control_laptop
+- Supabase memory recall
+- Safe automatic app-opening only
+
+Still blocked:
+- auto buy/sell
+- trade confirmation
+- payments
+- deleting files
+- irreversible actions
+
+Required Vercel env:
+- GEMINI_API_KEY
+- GEMINI_MODEL
+
+Optional:
+- SUPABASE_URL
+- SUPABASE_SERVICE_ROLE_KEY
+- JOIN_API_KEY
+- JOIN_DEVICE_ID

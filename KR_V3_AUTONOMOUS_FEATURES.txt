@@ -1,0 +1,27 @@
+K-R v3 Autonomous Feature Pack
+
+Added:
+- Multi-agent routing: Trade, Research, Code, Ops, Memory, Brain
+- Safe tool calling for phone/laptop
+- Supabase memory recall
+- Persistent laptop command queue using Supabase
+- Trade journal API
+- Alerts API
+- Phone status API
+- Dashboard stats API
+- Update log API
+- Autonomous-loop API + Vercel Cron every 15 min
+- Laptop agent v3
+- Tasker setup v3
+
+Scaffolded/not fully finished:
+- Real MEXC/Binance live data
+- Solana wallet watcher
+- Screenshot-to-action full loop
+- Web research with external search API
+
+Safety remains:
+- no auto buy/sell
+- no payments
+- no deleting files
+- no irreversible actions without confirmation

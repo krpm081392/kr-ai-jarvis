@@ -1,0 +1,24 @@
+K-R v9 Jarvis Mastery Add-Only Patch
+
+Added:
+- KRV9Addons.jsx
+- V9 tab in App.jsx
+- Voice Mastery API
+- Multi-Source Intelligence Engine
+- Mission Swarm Executor
+- Self-Diagnostic / Optimization API
+- Knowledge Graph API
+- Advanced Screen Orchestrator
+- Holographic UI orb polish
+- Laptop Agent v9
+
+Kept:
+- All v1-v8 features
+- All safety rules
+
+Safety:
+- No auto buy/sell
+- No withdrawals
+- No payments
+- No deleting files
+- No high-risk click/action without confirmation

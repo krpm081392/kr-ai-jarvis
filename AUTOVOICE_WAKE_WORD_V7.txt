@@ -1,0 +1,5 @@
+K-R v7 AutoVoice Wake Word Setup
+
+Apps: Tasker, AutoVoice, Join, AutoInput
+Command filter: hey k r|hey kr|k r
+Task: open KR web app and optionally tap microphone.

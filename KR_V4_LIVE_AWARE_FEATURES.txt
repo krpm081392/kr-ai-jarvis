@@ -1,0 +1,45 @@
+K-R v4 Live-Aware Pack
+
+Added only the live-awareness features discussed:
+
+1. Real Web Research API
+- /api/web-research
+- Uses Google Custom Search if GOOGLE_SEARCH_API_KEY and GOOGLE_SEARCH_CX exist
+- Falls back to DuckDuckGo Instant Answer
+- Gemini summarizes results
+
+2. Live Market Data API
+- /api/market-data
+- Binance public ticker/candles/orderbook
+- Funding fallback from Binance futures
+- Fear & Greed from Alternative.me
+- RSI, EMA20, EMA50, volume spike
+
+3. Screenshot Vision API
+- /api/vision-analyze
+- Gemini vision analyzes charts/screenshots
+
+4. Morning Briefing API
+- /api/morning-brief
+- Uses market data + alerts
+- Pushes phone notification if Join keys exist
+
+5. Solana Wallet Watcher API
+- /api/solana-wallet
+- Checks SOL balance and recent signatures
+
+6. Supabase schema extended
+- kr_market_snapshots
+- kr_research_reports
+- kr_wallet_watch
+
+7. Vercel cron updated
+- autonomous loop every 15 min
+- morning brief at 7:00 daily
+
+Still blocked/safe:
+- no auto buy
+- no auto sell
+- no withdrawals
+- no payment approval
+- all trade entry/exit requires Dikong confirmation

@@ -1,0 +1,22 @@
+V13 Builder & Deployment Expansion (ADD ONLY)
+
+Added Concepts:
+- Website Builder Agent
+- App Builder Agent
+- Client Requirement Collector
+- Project Brief Generator
+- GitHub Project Generator
+- Deployment Agent
+- Vercel Deployment Workflow
+- Netlify Deployment Workflow
+- Supabase Setup Wizard
+- SEO Agent
+- UI/UX Review Agent
+- QA Agent
+- Sandbox Preview -> Review -> Approve -> Deploy flow
+
+Safety:
+- No payments
+- No withdrawals
+- Production deployment should require approval
+- Add-only upgrade, preserve previous versions

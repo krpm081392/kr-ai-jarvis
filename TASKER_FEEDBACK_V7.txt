@@ -1,0 +1,7 @@
+K-R v7 Two-Way Tasker Feedback
+
+After each Tasker action, add HTTP Request POST to:
+https://YOUR-KR-VERCEL-URL.vercel.app/api/phone-status
+
+JSON Body:
+{"last_action":"%jointext","result":"executed","battery":"%BATT","wifi":"%WIFII","active_app":"%WIN","time":"%TIME"}

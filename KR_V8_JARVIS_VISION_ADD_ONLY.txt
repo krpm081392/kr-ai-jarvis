@@ -1,0 +1,27 @@
+K-R v8 Jarvis Vision Add-Only Patch
+
+Added:
+- KRV8Addons.jsx
+- V8 tab in App.jsx
+- System Status Orb with volatility pulse
+- Global Brief API
+- Mission Planner API
+- Prediction / What-if Engine API
+- Screen Awareness API
+- Safe Browser Read API
+- High-risk Confirmation Gate API
+- Laptop Agent v8 with periodic screenshot awareness
+- Supabase tables for screen awareness and confirmation requests
+
+Keeps:
+- All v1-v7 features
+- Sintra-style agents
+- Live market/research/wallet layers
+- Existing safety rules
+
+Safety:
+- No auto buy/sell
+- No withdrawals
+- No payment approval
+- No automatic high-risk click
+- High-risk actions go to confirmation gate only

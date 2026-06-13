@@ -1,0 +1,2 @@
+import { createClient } from '@supabase/supabase-js';
+export default async function handler(req,res){try{const s=getSupabase();if(!s)return res.status(200).json({ok:true,tasks:[]});const {data=[]}=await s.from("kr_agent_tasks").select("*").order("created_at",{ascending:false}).limit(50);return res.status(200).json({ok:true,tasks:data});}catch(e){return res.status(500).json({ok:false,error:e.message});}}function getSupabase(){const url=process.env.SUPABASE_URL,key=process.env.SUPABASE_SERVICE_ROLE_KEY;if(!url||!key)return null;return createClient(url,key);}

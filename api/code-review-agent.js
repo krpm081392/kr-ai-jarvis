@@ -1,0 +1,1 @@
+export default function handler(req,res){res.status(200).json({ok:true,status:"Code Review Agent scaffold",features:["review diffs","detect risky changes","check add-only rule","check env vars","recommend tests"],safety:"does not auto-merge or deploy"});}

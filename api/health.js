@@ -1,8 +1,1 @@
-export default async function handler(req, res) {
-  return res.status(200).json({
-    ok: true,
-    gemini: Boolean(process.env.GEMINI_API_KEY),
-    supabase: Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY),
-    join: Boolean(process.env.JOIN_API_KEY && process.env.JOIN_DEVICE_ID)
-  });
-}
+export default function handler(req,res){res.status(200).json({ok:true,gemini:Boolean(process.env.GEMINI_API_KEY),supabase:Boolean(process.env.SUPABASE_URL&&process.env.SUPABASE_SERVICE_ROLE_KEY),join:Boolean(process.env.JOIN_API_KEY&&process.env.JOIN_DEVICE_ID),localModels:{primary:process.env.KR_LOCAL_MODEL_PRIMARY||"TheBloke/Mistral-7B-Instruct-v0.2-GGUF",backup:process.env.KR_LOCAL_MODEL_BACKUP||"GPT4All Falcon",runner:process.env.KR_LOCAL_MODEL_RUNNER||"GPT4All v3.10.0",endpoint:Boolean(process.env.KR_LOCAL_MODEL_ENDPOINT)}});}

@@ -1,0 +1,10 @@
+Verified add-only foundation fix based on the original uploaded V14 zip.
+
+Deleted files: 0
+Modified files: api/kr.js, src/App.jsx
+Added files: api/voice-chat-status.js
+
+Main fixes:
+- V5-V14 panels now have navigation/render access when their component files exist.
+- /api/kr.js now has live callable tools again for chat/voice.
+- Voice input through Chat tab can now trigger live tools.

@@ -1,0 +1,23 @@
+KR Tasker Setup v3
+Apps: Tasker, AutoInput, Join
+
+Receive KR commands:
+Profile > Event > Plugin > Join > Received Push
+Text filter: kr_action:
+
+IF %jointext ~ *open_binance*
+  App > Launch App > Binance
+END IF
+
+IF %jointext ~ *open_chrome*
+  App > Launch App > Chrome
+END IF
+
+Optional phone status every 30 min:
+HTTP Request POST to:
+https://YOUR-KR-VERCEL-URL.vercel.app/api/phone-status
+
+JSON body:
+{"battery":"%BATT","wifi":"%WIFII","active_app":"%WIN","time":"%TIME"}
+
+Safety: Do NOT automate final BUY/SELL confirm.

@@ -1,0 +1,26 @@
+K-R v6 Smart Upgrades Add-Only
+
+Added:
+- KRV6Addons.jsx
+- V6 tab in App.jsx
+- Memory importance ranking
+- Voice note to memory
+- Trading scorecard
+- Coin research report generator
+- Website/system health monitor
+- Command analytics
+- Self-update assistant
+- Screenshot history
+- Supabase schema additions
+
+Kept:
+- Existing v2/v3/v4/v5 UI and features
+- Existing Live tab
+- Existing APIs
+- Existing safety rules
+
+Still blocked:
+- no auto buy/sell
+- no withdrawals
+- no payment approvals
+- no irreversible actions without Dikong confirmation

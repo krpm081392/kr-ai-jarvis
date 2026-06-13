@@ -1,0 +1,32 @@
+K-R v7 Universal Agent OS Add-Only Patch
+
+Added:
+- KRV7Addons.jsx
+- V7 tab in App.jsx
+- Sintra-style multi-agent status panel
+- Agent delegation API
+- Agent task queue
+- Business Agent
+- Portfolio Agent
+- Automation Agent
+- Universal Market Agent concept
+- Conversation memory across sessions
+- Proactive greeting API
+- Notification history API
+- Portfolio tracker API
+- Pattern learning API
+- User preferences API
+- Offline fallback API
+- Tasker two-way feedback guide
+- AutoVoice wake word guide
+- Supabase schema additions
+
+Universal focus:
+K-R is not only crypto/Solana-focused. Market Agent supports crypto, stocks, forex, commodities, ETFs, and indices conceptually.
+
+Still blocked:
+- no auto buy/sell
+- no withdrawals
+- no payment approval
+- no deleting files
+- no irreversible actions without Dikong confirmation

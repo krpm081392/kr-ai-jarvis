@@ -1,0 +1,1 @@
+export default function handler(req,res){res.status(200).json({ok:true,chatVoice:"Web Speech API mic button works while Chat tab is open.",wakeWord:"Use AutoVoice/Tasker to listen for Hey K-R and open KR PWA.",important:"Chat/voice now uses /api/kr with live tools wired back in."});}

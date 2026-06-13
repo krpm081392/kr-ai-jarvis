@@ -1,0 +1,40 @@
+Required:
+GEMINI_API_KEY
+GEMINI_MODEL=gemini-1.5-flash
+
+Supabase:
+SUPABASE_URL
+SUPABASE_SERVICE_ROLE_KEY
+
+Phone:
+JOIN_API_KEY
+JOIN_DEVICE_ID
+
+Live web research optional:
+GOOGLE_SEARCH_API_KEY
+GOOGLE_SEARCH_CX
+
+Solana:
+SOLANA_RPC_URL
+SOLANA_WATCH_WALLET
+
+Cron:
+KR_CRON_SECRET
+
+Site:
+NEXT_PUBLIC_SITE_URL
+
+
+V8 optional:
+NEWS_API_KEY
+KR_SCREEN_INTERVAL=300
+KR_ENABLE_SCREEN_AWARENESS=true
+KR_ENABLE_BROWSER_READ=true
+
+
+# K-R Local Offline Model Settings (ADD-ONLY)
+# These are config names only. Do not upload model files to Supabase/Vercel.
+KR_LOCAL_MODEL_PRIMARY=TheBloke/Mistral-7B-Instruct-v0.2-GGUF
+KR_LOCAL_MODEL_BACKUP=GPT4All Falcon
+KR_LOCAL_MODEL_RUNNER=GPT4All v3.10.0
+KR_LOCAL_MODEL_ENDPOINT=http://localhost:4891/v1/chat/completions
