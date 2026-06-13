@@ -1,0 +1,34 @@
+K-R Local Brain Fallback Add-Only Patch
+
+Added:
+- api/local-brain.js
+- api/local-brain-status.js
+- laptop-agent/kr_local_brain_agent.py
+- laptop-agent/kr_local_ai_server.py
+- Supabase table kr_local_ai_requests
+
+How it works:
+1. K-R uses Gemini first.
+2. If Gemini quota/rate-limit/model error happens, api/kr.js can call /api/local-brain.
+3. /api/local-brain either:
+   A) calls LOCAL_AI_URL directly if you use Cloudflare Tunnel/ngrok, or
+   B) writes a request to Supabase queue.
+4. Laptop agent reads queue, asks GPT4All/Mistral locally, writes answer back.
+5. K-R returns local answer.
+
+Vercel optional env:
+LOCAL_AI_URL=https://your-tunnel-url
+LOCAL_AI_TOKEN=optional-secret
+LOCAL_AI_TIMEOUT_MS=45000
+
+Laptop env for queue agent:
+SUPABASE_URL=https://pbpouulfitelefyezocx.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your_secret_key
+GPT4ALL_MODEL_NAME=mistral-7b-instruct-v0.2.Q4_0.gguf
+
+Safety kept:
+- no auto buy/sell
+- no withdrawals
+- no payments
+- no deleting files
+- no production deployment without Dikong confirmation

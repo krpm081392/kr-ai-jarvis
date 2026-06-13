@@ -117,3 +117,15 @@ on conflict (id) do update set
   role=excluded.role,
   notes=excluded.notes,
   active=excluded.active;
+
+
+-- K-R Local AI fallback queue
+create table if not exists kr_local_ai_requests (
+  id uuid primary key,
+  prompt text not null,
+  response text,
+  error text,
+  status text default 'pending',
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);

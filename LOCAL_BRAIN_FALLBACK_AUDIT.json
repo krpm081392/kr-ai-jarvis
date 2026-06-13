@@ -1,0 +1,16 @@
+{
+  "source_zip": "k-r-AI-main(1).zip",
+  "deleted_files": [],
+  "modified_files": [
+    "api/kr.js",
+    "supabase_schema.sql"
+  ],
+  "added_files": [
+    "KR_LOCAL_BRAIN_FALLBACK_ADD_ONLY.txt",
+    "api/local-brain-status.js",
+    "api/local-brain.js",
+    "laptop-agent/kr_local_ai_server.py",
+    "laptop-agent/kr_local_brain_agent.py"
+  ],
+  "purpose": "Add local GPT4All/Mistral fallback brain without deleting existing features."
+}

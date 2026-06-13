@@ -16,6 +16,12 @@ const KR_TOOLS = [{
     { name:"coin_report", description:"Generate a coin/project research report.", parameters:{ type:"OBJECT", properties:{ coin:{type:"STRING"} }, required:["coin"] } },
     { name:"tech_planner", description:"Create technical implementation/deployment plan.", parameters:{ type:"OBJECT", properties:{ goal:{type:"STRING"} }, required:["goal"] } },
     { name:"debug_engine", description:"Debug code/errors and suggest fixes.", parameters:{ type:"OBJECT", properties:{ code:{type:"STRING"} }, required:["code"] } },
+    
+    {
+      name: "local_brain_fallback",
+      description: "Use Dikong's local laptop AI/GPT4All/Mistral fallback when Gemini is unavailable or for offline/local reasoning.",
+      parameters: { type:"OBJECT", properties:{ prompt:{type:"STRING"} }, required:["prompt"] }
+    },
     { name:"website_builder_plan", description:"Plan website build and deployment workflow. Production deployment requires confirmation.", parameters:{ type:"OBJECT", properties:{ client_request:{type:"STRING"} }, required:["client_request"] } }
   ]
 }];
@@ -106,7 +112,12 @@ ${systemExtra || ""}`;
     if (supabase && latestText) await supabase.from("kr_conversation_history").insert([{role:"user",content:latestText,session_id:"default"},{role:"kr",content:reply,session_id:"default"}]).catch(()=>{});
     return res.status(200).json({reply,agent,toolResults});
   } catch(e) {
-    return res.status(500).json({reply:"KR backend error: "+e.message});
+    if (shouldUseLocalFallback(e.message)) {
+      const latestText = (req.body?.messages || [])[((req.body?.messages || []).length - 1)]?.text || "Hello K-R";
+      const fallbackReply = await callLocalBrainFallback(latestText, e.message);
+      return res.status(200).json({ reply: fallbackReply, fallback: "local_brain" });
+    }
+    return res.status(500).json({ reply: "KR backend error: " + e.message });
   }
 }
 
@@ -148,6 +159,7 @@ async function runTool(name,args){
     if(name==="coin_report") return await callLocal(`/api/coin-report`,"POST",{coin:args.coin});
     if(name==="tech_planner") return await callLocal(`/api/tech-planner`,"POST",{goal:args.goal});
     if(name==="debug_engine") return await callLocal(`/api/debug-engine`,"POST",{code:args.code});
+    if(name==="local_brain_fallback") return await callLocal(`/api/local-brain`,"POST",{prompt:args.prompt});
     if(name==="website_builder_plan") return await callLocal(`/api/tech-planner`,"POST",{goal:"Build/deploy website request: "+args.client_request});
     return {ok:false,error:"Unknown tool"};
   }catch(e){return {ok:false,error:e.message};}
@@ -201,3 +213,20 @@ async function loadHistory(s){if(!s)return"";const {data=[]}=await s.from("kr_co
 async function logSupabase(s,type,data){if(!s)return;await s.from("kr_logs").insert({type,data}).catch(()=>{});}
 function getBaseUrl(){if(process.env.VERCEL_URL)return`https://${process.env.VERCEL_URL}`;if(process.env.NEXT_PUBLIC_SITE_URL)return process.env.NEXT_PUBLIC_SITE_URL;return"http://localhost:3000";}
 function getSupabase(){const url=process.env.SUPABASE_URL,key=process.env.SUPABASE_SERVICE_ROLE_KEY;if(!url||!key)return null;return createClient(url,key);}
+
+
+async function callLocalBrainFallback(promptText, reason="Gemini unavailable"){
+  try{
+    const result = await callLocal(`/api/local-brain`, "POST", { prompt: promptText });
+    if(result?.ok && result?.response){
+      return `Dikong, Gemini is unavailable (${reason}). I switched to local laptop brain.\n\n${result.response}`;
+    }
+    return `Dikong, Gemini is unavailable (${reason}), and local laptop brain is not ready yet: ${result?.error || "unknown local fallback error"}`;
+  }catch(e){
+    return `Dikong, Gemini is unavailable (${reason}), and local laptop brain failed: ${e.message}`;
+  }
+}
+
+function shouldUseLocalFallback(errorMessage=""){
+  return /quota|rate|limit|RESOURCE_EXHAUSTED|unavailable|overloaded|not found/i.test(String(errorMessage));
+}
